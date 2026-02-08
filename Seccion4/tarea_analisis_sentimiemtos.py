@@ -198,7 +198,8 @@ def main():
     textos_prueba = [
         "¡Me encanta este producto! Funciona perfectamente y llegó muy rápido.",
         "El servicio al cliente fue terrible, nadie me ayudó con mi problema.",
-        "El clima está nublado hoy, probablemente llueva más tarde."
+        "El clima está nublado hoy, probablemente llueva más tarde.",
+        "Te quiero muchísimo, pero no puedo seguir con esto"
     ]
     
     for texto in textos_prueba:
