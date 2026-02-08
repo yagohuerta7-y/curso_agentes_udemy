@@ -84,4 +84,5 @@ llm_structurado = llm.with_structured_output(AnalisisTexto) # Aquí le decimos q
 # Ahora sí, hacemos la consulta al modelo con los mensajes que hemos formateado y obtenemos el resultado estructurado
 resultado = llm_structurado.invoke(mensajes)
 
-print(resultado)
+# print(resultado) # Este te imprime algo distinto
+print(resultado.model_dump_json(indent=2)) # Forzamos que retorne un JSON
