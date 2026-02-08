@@ -1,11 +1,7 @@
-# En esta tarea, el objetivo es hacer un código de análisis de sentimientos.
+# Este script es un primer acercamiento al procesamiento en paralelo
+# No es perfecto, en el siguiente script se aborda de una mejor manera
+# pero es un buen inicio
 
-# La estructura: 
-# Texto de entrada → Preprocesamiento → Análisis Completo → Resultado
-#                                            ↙        ↘
-#                                     Resumen    Sentimiento
-#
-# El cambio que hubo respecto al otro script, es que este se va a ejecutar de manera paralela
 
 import os
 import json
