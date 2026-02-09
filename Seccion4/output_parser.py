@@ -18,8 +18,8 @@ from pydantic import Field
 from langchain_openai import ChatOpenAI
 
 # Para manejar los mensajes de la conversación (no se usan aquí)
-from langchain_core.messages import HumanMessage
-from langchain_core.messages import AIMessage
+# from langchain_core.messages import HumanMessage
+# from langchain_core.messages import AIMessage
 
 # Para definir la plantilla de mensajes
 from langchain_core.prompts import ChatPromptTemplate
