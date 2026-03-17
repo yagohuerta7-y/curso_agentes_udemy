@@ -10,11 +10,11 @@ load_dotenv()
 # Asignamos la api key a la variable de entorno
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# Definimos el modelo
+# Definimos el modelo y sus hiperparámetros
 llm = ChatOpenAI(model="gpt-5-nano-2025-08-07", temperature=0.0, api_key=OPENAI_API_KEY)
 
 # Guardamos la pregunta en unna variable
-pregunta = "Explícame las direncias entre la integral de Riemann y la de Lebesgue"
+pregunta = "Resume en 5 datos quien fue Cristobal Colón"
 
 # Hacemos la inferencia
 respuesta = llm.invoke(pregunta)
