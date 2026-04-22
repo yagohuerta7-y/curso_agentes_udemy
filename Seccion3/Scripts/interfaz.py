@@ -58,8 +58,8 @@ for message in st.session_state.messages:
     role = "assistant" if isinstance(message, AIMessage) else "user"
     
     # Mostramos el mensaje
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    with st.chat_message(role):
+        st.markdown(message.content)
         
         
         
