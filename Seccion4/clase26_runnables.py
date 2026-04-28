@@ -1,4 +1,6 @@
-# Los Runnables son cualquier objeto dentro de langchain que puedan invocarse.
+# Un Runnable es básicamente cualquier componente de LangChain que puede recibir una entrada, procesarla y devolver una salida. 
+# Es la "interfaz común" que hace que todo en LangChain hable el mismo idioma.
+# Otra forma de ver los Runnables es que son cualquier objeto dentro de langchain que puedan invocarse.
 # Osea, que se pueda usar el método .invoke()
 
 from langchain_core.runnables import RunnableLambda
