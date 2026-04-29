@@ -36,8 +36,30 @@ load_dotenv()
 # Asignamos la api key a la variable de entorno
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-
 llm = ChatOpenAI(model="gpt-5-nano-2025-08-07", temperature=0.0, api_key=OPENAI_API_KEY)
+
+
+# Definimos el template para el comportamiento del generador de resumenes
+prompt_resumen = PromptTemplate(
+    input_variables=["texto"],
+    template="""
+        Eres un asistente el cual tu única tarea es resumir el siguiente texto: 
+        {texto} 
+    """
+)
+
+# Definimos el template para el comportamiento del modelo al clasificar los sentimientos
+prompt_sentimiento = PromptTemplate(
+    input_variables=["texto"],
+    template="""
+        Eres un analizador de sentimientos experto. Tu tarea es dado un texto que se te va a proporcionar, respondas únicamente en este formato JSON:
+        {{"sentimiento": "positivo|negativo|neutro", "razon": "justificación breve"}}
+            
+        El texto el el siguiente:
+        {texto}
+    """
+    )
+
 
 
 
@@ -66,15 +88,6 @@ def generate_resumen(texto: str) -> str:
     Args:
         text (str): Texto al que le vamos a aplicar un resumen
     """
-    # Definimos el template para el comportamiento del generador de resumenes
-    prompt_resumen = PromptTemplate(
-        input_variables=["texto"],
-        template="""
-        Eres un asistente el cual tu única tarea es resumir el siguiente texto: 
-        {texto} 
-        """
-    )
-    
     chain = prompt_resumen | llm
     respuesta = chain.invoke({"texto": texto})
     
@@ -99,18 +112,6 @@ def analyze_sentiment(texto: str) -> dict[str, str]:
             'razon': str
         }
     """
-    # Definimos el template para el comportamiento del modelo al clasificar los sentimientos
-    prompt_sentimiento = PromptTemplate(
-        input_variables=["texto"],
-        template="""
-        Eres un analizador de sentimientos experto. Tu tarea es dado un texto que se te va a proporcionar, respondas únicamente en este formato JSON:
-        {{"sentimiento": "positivo|negativo|neutro", "razon": "justificación breve"}}
-        
-        El texto el el siguiente:
-        {texto}
-        """
-    )
-
     chain = prompt_sentimiento | llm
     respuesta = chain.invoke({"texto": texto})
     
