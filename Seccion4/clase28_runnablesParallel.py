@@ -1,4 +1,4 @@
-# En esta clase, vamos a seguir con el proyecto de clasificación de sentimientos, pero introsuciendo el concepto de RunnableParallel.
+# En esta clase, vamos a seguir con el proyecto de clasificación de sentimientos, pero introduciendo el concepto de RunnableParallel.
 # Es un Runnable que ejecuta múltiples Runnables al mismo tiempo con la misma entrada, y agrupa todos sus resultados en un solo diccionario.
     
 #            input
