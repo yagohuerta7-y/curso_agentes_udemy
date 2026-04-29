@@ -151,7 +151,7 @@ def main():
     chain = preprocessor | parallel | unir
     
     # Aquí, hacemos el llamado del procesamiento en batch, para que se procesen todas las reviews en paralelo
-    resultado = chain.batch(reviews_batch)
+    resultado = chain.batch(reviews_batch, config={"max_concurrency": 3}) # Máximo 3 a la vez
     
     print(resultado)
     
