@@ -1,8 +1,6 @@
 # El propósito de este script, es replicar el análisis de sentimientos que teníamos, pero ahora estructurando la respuesta del modelo usando pydantic.
 
 import os
-import json
-from typing import Any
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
