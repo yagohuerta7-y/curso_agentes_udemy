@@ -1,6 +1,7 @@
 # MessagesPlaceholder es un componente que va dentro de un ChatPromptTemplate y reserva un espacio para insertar una lista completa de mensajes en una posición específica del prompt.
 # Sin MessagesPlaceholder, si quisieras meter el historial de conversación en un ChatPromptTemplate, tendrías que convertirlo manualmente a un string y perderías los roles
-# Además, otro caso de uso sumamente útil, es que se puede usar
+# Además, otro caso de uso sumamente útil, es que se puede usar MessagesPlaceholder para insertar un historial de mensajes en un prompt que no es un ChatPromptTemplate, 
+# como por ejemplo un PromptTemplate común, lo que te permite tener el historial de mensajes en cualquier tipo de prompt sin necesidad de convertirlo a string y perder los roles.
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import MessagesPlaceholder
