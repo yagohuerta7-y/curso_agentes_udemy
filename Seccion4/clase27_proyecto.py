@@ -18,12 +18,12 @@ load_dotenv()
 # Asignamos la api key a la variable de entorno
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-
+# Configuramos el mondelo de lenguaje que vamos a usar 
 llm = ChatOpenAI(model="gpt-5-nano-2025-08-07", temperature=0.0, api_key=OPENAI_API_KEY)
 
 
 
-def preprocess_text(texto: str):
+def preprocess_text(texto: str)-> str:
     """ 
     Función que limpia el texto de entrada (eliminando espacios extras y limitando la longitud a 500 caracteres)
     
@@ -67,12 +67,15 @@ resumen = RunnableLambda(generate_resumen)
 
 
 
-def analyze_sentiment(texto: str):
+def analyze_sentiment(texto: str) -> dict:
     """ 
     Esta función es la encargada de hacer el análisis de sentimiento del texto
     
     Args:
         text (str): Texto al que le vamos a hacer el análisis de sentimiento
+
+    Returns:
+        dict: Un diccionario con el sentimiento (positivo, negativo o neutro) y una breve justificación del por qué se clasificó de esa manera
     """
     # Definimos el template para el comportamiento del modelo al clasificar los sentimientos
     promptSentimiento = PromptTemplate(
