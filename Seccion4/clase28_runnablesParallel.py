@@ -63,7 +63,7 @@ prompt_sentimiento = PromptTemplate(
 
 
 
-def preprocess_text(texto: str):
+def preprocess_text(texto: str) -> str:
     """ 
     Función que limpia el texto de entrada (eliminando espacios extras y limitando la longitud a 500 caracteres)
     
@@ -71,7 +71,7 @@ def preprocess_text(texto: str):
         text (str): Cadena de entrada
         
     Returns:
-        str
+        str: Cadena de texto limpia y preprocesada
     """
     texto = texto[:500]
     return texto.strip()
@@ -87,6 +87,9 @@ def generate_resumen(texto: str) -> str:
     
     Args:
         text (str): Texto al que le vamos a aplicar un resumen
+
+    Returns:
+        str: Resumen generado por el modelo
     """
     chain = prompt_resumen | llm
     respuesta = chain.invoke({"texto": texto})
@@ -165,9 +168,7 @@ def main():
     
     chain = preprocessor | parallel | unir
     
-    
     resultado = chain.invoke(text)
-    
     print(resultado)
     
     return resultado
