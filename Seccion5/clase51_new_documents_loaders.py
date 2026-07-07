@@ -13,7 +13,7 @@ from langchain_pymupdf4llm import PyMuPDF4LLMLoader # Este funciona Tesseract, p
 base_dir = Path(__file__).resolve().parent
 
 # Ruta del archivo PDF
-file_path = base_dir / 'Data' / 'CV_Yago_Harvard_esp.pdf'
+file_path = base_dir / 'Data' / 'CV' / 'CV_Yago_Harvard_esp.pdf'
 
 
 # --- Carga de documentos ---
