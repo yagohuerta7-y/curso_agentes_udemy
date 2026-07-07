@@ -11,3 +11,8 @@ wheels/
 .env
 
 *.ipynb
+
+# Chroma DB (vector store generated files)
+**/chroma_db/
+**/chroma.sqlite3
+**/chroma.sqlite3-*
