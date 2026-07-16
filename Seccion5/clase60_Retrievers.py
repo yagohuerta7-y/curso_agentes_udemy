@@ -54,3 +54,4 @@ resultados = retriver.invoke(query)
 print(f'Top 2 documentos mas similares a la consulta:\n\n')
 for i, doc in enumerate(resultados, start=1):
     print(f'Contenido: \n {doc.page_content}')
+    print(f'Metadata: \n {doc.metadata}\n\n')
